@@ -1,0 +1,1 @@
+function i(n){return Number.isFinite(n)&&n>=-90&&n<=90}function t(n){return Number.isFinite(n)&&n>=-180&&n<=180}function u(n){if(n.trim()==="")return null;const r=Number(n);return Number.isFinite(r)?r:null}function e(n){const r=u(n);return r===null?null:i(r)?r:null}function l(n){const r=u(n);return r===null?null:t(r)?r:null}export{l as a,e as p};

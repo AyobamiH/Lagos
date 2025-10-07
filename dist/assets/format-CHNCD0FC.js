@@ -1,0 +1,1 @@
+const n=new Intl.NumberFormat("en-NG",{style:"currency",currency:"NGN",currencyDisplay:"symbol",maximumFractionDigits:2});function t(r){if(r==null||r==="")return"";const e=typeof r=="number"?r:Number(r);return Number.isFinite(e)?n.format(e):""}export{t as f};

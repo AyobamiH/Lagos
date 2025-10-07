@@ -1,0 +1,14 @@
+{
+  "nav.signup": "Signup",
+  "nav.login": "Login",
+  "nav.profile": "Profile",
+  "nav.request": "Request Ride",
+  "nav.quote": "Quote+Request",
+  "nav.rides": "My Rides",
+  "nav.receiptDemo": "Receipt Demo",
+  "nav.driver": "Driver",
+  "nav.ops": "Ops Panel",
+  "toast.sessionExpired": "Session expired",
+  "error.load_failed": "Failed to load data",
+  "wizard.title": "Ride Wizard"
+}

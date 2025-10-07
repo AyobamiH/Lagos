@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ride Hailing Frontend</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#2563eb" />
+  <style>
+    :root { --bg:#ffffff; --fg:#111111; --accent:#2563eb; --panel:#f5f7fa; font-family: system-ui, sans-serif; }
+    [data-theme='dark'] { --bg:#0f172a; --fg:#f1f5f9; --accent:#3b82f6; --panel:#1e293b; }
+    body { background: var(--bg); color: var(--fg); margin:0; }
+    nav a { text-decoration:none; color: var(--accent); }
+    button { cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

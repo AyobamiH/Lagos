@@ -1,0 +1,1 @@
+import{j as e}from"./index-CQqwMk0w.js";const n=({onClick:o,className:t=""})=>e.jsx("button",{type:"button",onClick:o,"aria-label":"SOS Emergency",className:`fixed z-40 bottom-20 right-4 md:bottom-6 md:right-6 h-14 w-14 rounded-full bg-red-600 text-white shadow-lg border border-red-700 focus:outline-none focus:ring-4 focus:ring-red-400 ${t}`,children:"SOS"});export{n as S};

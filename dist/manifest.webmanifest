@@ -1,0 +1,13 @@
+{
+  "name": "Ride Hailing",
+  "short_name": "Ride",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "description": "Inclusive ride-hailing & transport platform",
+  "icons": [
+    { "src": "/icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml" },
+    { "src": "/icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml" }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "assets/DriverPanel-B5pAq9Zb.js": {
+    "size": 2083,
+    "gzip": 1080
+  },
+  "assets/index-CSTn13Lj.js": {
+    "size": 215921,
+    "gzip": 69874
+  },
+  "assets/Login-DHOz9FxJ.js": {
+    "size": 558,
+    "gzip": 339
+  },
+  "assets/MapPicker-Cw6LCUnW.js": {
+    "size": 154387,
+    "gzip": 45197
+  },
+  "assets/Profile-Br1LqaQs.js": {
+    "size": 4286,
+    "gzip": 1724
+  },
+  "assets/QuoteAndRequest-dpP7HXUO.js": {
+    "size": 5514,
+    "gzip": 2092
+  },
+  "assets/RequestRide-B_H2s84x.js": {
+    "size": 3501,
+    "gzip": 1430
+  },
+  "assets/RideDetail-BtKbByea.js": {
+    "size": 1699,
+    "gzip": 848
+  },
+  "assets/RidesList-D7InGK6r.js": {
+    "size": 2326,
+    "gzip": 1123
+  },
+  "assets/Signup-cFOXQH1c.js": {
+    "size": 671,
+    "gzip": 372
+  },
+  "sw.js": {
+    "size": 1692,
+    "gzip": 696
+  }
+}
