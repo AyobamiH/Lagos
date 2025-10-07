@@ -50,8 +50,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode; initialToken?: 
       try {
         const p = await api.profile(token);
         if (p) {
-          setProfile(p);
-          cacheUserRole(p?.role);
+          // Normalize rider profile to always include an explicit role
+          const prof = { ...p, role: p?.role || 'rider' };
+          setProfile(prof);
+          cacheUserRole(prof.role);
           return;
         }
       } catch (e:any) {
@@ -66,12 +68,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode; initialToken?: 
         cacheUserRole('driver');
         return;
       } catch (e:any) {
-        if (e?.status === 401) { logout(); return; }
+        // If unauthorized/forbidden/not found, end session to avoid infinite loading UI
+        if (e?.status === 401 || e?.status === 403 || e?.status === 404) { logout(); return; }
         // Keep previous profile if any, but surface an error toast via API hook
       }
     } catch (e:any) {
       if (e?.status === 401) logout();
     }
+    // Safety: if we reached here without setting a profile, log out to prevent indefinite loading
+    if (!profile) logout();
   }
 
   useEffect(() => { if (token) { console.log('[auth] token present, fetching profile'); refreshProfile(); } }, [token]);

@@ -210,6 +210,7 @@ export default function DriverPanel() {
 
   async function startLiveLocation() {
     if (!token) { push({ message:'login_required', type:'error' }); return; }
+    if (!profile || profile.role !== 'driver') { push({ message:'driver_role_required', type:'error' }); return; }
     if (!('geolocation' in navigator)) { push({ message:'Geolocation not supported on this device', type:'error' }); return; }
     // Optional: preflight permissions (best-effort)
     try {
@@ -251,15 +252,15 @@ export default function DriverPanel() {
 
   // Auto-start/stop live location tracking when ride state changes
   useEffect(() => {
-    if (lifecycle.rideId && !liveLocOn) {
+    if (profile?.role==='driver' && lifecycle.rideId && !liveLocOn) {
       // Fire and forget; if permission denied, a toast will show and tracking won't start
       startLiveLocation();
     }
-    if (!lifecycle.rideId && liveLocOn) {
+    if ((!lifecycle.rideId || profile?.role!=='driver') && liveLocOn) {
       stopLiveLocation();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lifecycle.rideId]);
+  }, [lifecycle.rideId, profile?.role]);
 
   async function doAction(kind:'arrive'|'start'|'complete') {
     if (!lifecycle.rideId) return;

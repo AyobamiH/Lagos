@@ -102,6 +102,7 @@ export const MutationQueueProvider: React.FC<{ children: React.ReactNode }> = ({
   // Derive card capability from AuthContext (profile.paymentMethods)
   const { profile } = useAuth();
   const hasCardCapability = Array.isArray(profile?.paymentMethods) ? profile.paymentMethods.includes('card') : false;
+  const isDriver = profile?.role === 'driver';
 
   async function requestRideOrQueue(payload: RideRequestPayload): Promise<{ mode:'immediate'|'queued'; ride?: any; error?: any }> {
     if (!token) return { mode:'immediate', error:'not_authenticated' };
@@ -131,10 +132,12 @@ export const MutationQueueProvider: React.FC<{ children: React.ReactNode }> = ({
 
   async function sendDriverLocationOrQueue(payload: DriverLocationPayload): Promise<{ mode:'immediate'|'queued'; error?: any }> {
     if (!token) return { mode:'immediate', error:'not_authenticated' };
+    // Only drivers should send location updates; no-op for others
+    if (!isDriver) return { mode:'immediate' };
     if (!navigator.onLine || rl.active) {
       enqueueDriverLocation(payload);
       setPending(size()); setItems(snapshotQueue());
-  push({ message:t('queued_location_ping'), type:'info' });
+      push({ message:t('queued_location_ping'), type:'info' });
       return { mode:'queued' };
     }
     try {
